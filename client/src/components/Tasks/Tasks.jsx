@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Container, Row, Col, Card, Button, Navbar, Nav, Form } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useAuth } from '../AuthContext';
@@ -14,14 +14,7 @@ const Tasks = () => {
     const auth = useAuth();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!auth.user) {
-            navigate('/login');
-        }
-        fetchTasks();
-    }, [auth.user, navigate]);
-
-    const fetchTasks = async () => {
+    const fetchTasks = useCallback(async () => {
         try {
             const response = await fetch(`https://tasks-bc5v.onrender.com/api/tasks?userId=${auth.user._id}`);
             const data = await response.json();
@@ -29,7 +22,15 @@ const Tasks = () => {
         } catch (error) {
             console.error('Error fetching tasks:', error);
         }
-    };
+    }, [auth.user._id]);
+
+    useEffect(() => {
+        if (!auth.user) {
+            navigate('/login');
+        } else {
+            fetchTasks();
+        }
+    }, [auth.user, navigate, fetchTasks]);
 
     const handleAddTask = async (e) => {
         e.preventDefault();

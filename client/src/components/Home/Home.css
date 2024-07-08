@@ -1,0 +1,272 @@
+/* General page styles */
+.home-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0e0b16;
+    background: linear-gradient(135deg, #0e0b16 50%, #1f1c3e 100%);
+    padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a239ca;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+    /* Space between logo and text */
+    border-radius: 50%;
+    /* Rounded logo */
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link,
+.logout-link {
+    color: #fff !important;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.logout-link:hover {
+    color: #a239ca !important;
+    text-decoration: none;
+}
+
+/* Logout link specific styles */
+.logout-link {
+    color: #f0134d !important;
+    /* Red color for logout link */
+}
+
+.logout-link:hover {
+    color: #ff4661 !important;
+    /* Lighter red on hover */
+}
+
+/* Toggle button styles
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: none; */
+/* Remove default icon */
+/* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.navbar-toggler-icon div {
+    background-color: #fff;
+    height: 2px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-toggler-icon:hover div {
+    background-color: #a239ca;
+} */
+
+/* Home container styles */
+.home-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Heading styles */
+.home-container h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Task card styles */
+.task-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 25px;
+    margin: 15px;
+    text-align: center;
+}
+
+.task-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(162, 57, 202, 0.5), 0 0 40px rgba(71, 23, 246, 0.5);
+}
+
+.task-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a239ca;
+    margin-bottom: 15px;
+    /* Added spacing below the title */
+}
+
+.task-card .card-text {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.task-card .btn-primary {
+    background: linear-gradient(90deg, #a239ca 0%, #4717f6 100%);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card .btn-primary:hover {
+    background: linear-gradient(90deg, #4717f6 0%, #a239ca 100%);
+    box-shadow: 0 0 20px rgba(162, 57, 202, 0.6), 0 0 30px rgba(71, 23, 246, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .home-container {
+        padding: 10px;
+    }
+
+    .home-container h1 {
+        font-size: 2rem;
+    }
+
+    .task-card {
+        max-width: 100%;
+        padding: 20px;
+        /* Adjust padding for smaller screens */
+    }
+}
+
+/* Additional styling for better UX and visual appeal */
+/* Glow effect for buttons */
+.glow-on-hover {
+    box-shadow: 0 0 10px #a239ca, 0 0 20px #4717f6;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 20px #a239ca, 0 0 30px #4717f6;
+}
+
+/* Animation for navbar when scrolling */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 10px 50px;
+    }
+}
+
+/* Smooth scrolling for page links */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Add task form styles */
+.add-task-form {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.add-task-form input[type="text"],
+.add-task-form textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.add-task-form input[type="text"]:focus,
+.add-task-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    color: #fff;
+}
+
+.add-task-form .form-label {
+    color: #fff;
+    font-weight: bold;
+}
+
+.add-task-form .form-control::placeholder {
+    color: #b3b3b3;
+}
+
+.add-task-form .btn-primary {
+    background: linear-gradient(90deg, #a239ca 0%, #4717f6 100%);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-task-form .btn-primary:hover {
+    background: linear-gradient(90deg, #4717f6 0%, #a239ca 100%);
+    box-shadow: 0 0 20px rgba(162, 57, 202, 0.6), 0 0 30px rgba(71, 23, 246, 0.6);
+}
+
+.add-task-form .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-task-form .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    color: #fff;
+}

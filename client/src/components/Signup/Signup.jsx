@@ -32,12 +32,14 @@ const Signup = () => {
         // Simulated signup action
         try {
             const user = await auth.signupAction(formData);
+            // console.log(user)
 
             // Example success handling
-            if (user) {
-                navigate('/home');
+            if (user.success) {
+                alert('Created Successfully')
+                navigate('/login')
             } else {
-                setError('Signup failed. Please try again.');
+                setError('Signup failed. Email might already exists.');
             }
         } catch (error) {
             console.error('Error signing up:', error);

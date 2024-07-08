@@ -29,8 +29,9 @@ router.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const hash = await bcrypt.hash(password, 12);
-        await userModel.create({ name, email, password: hash });
-        res.json({ success: true });
+        await userModel.create({ name, email, password: hash })
+            .then(user => res.json({ success: true }))
+            .catch(err => res.json(err))
     } catch (err) {
         console.error('Signup error:', err);
         res.status(500).json({ error: 'Internal Server Error' }); // General error message

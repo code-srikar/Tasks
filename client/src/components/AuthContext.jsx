@@ -62,16 +62,9 @@ const AuthProvider = ({ children }) => {
                 const errorDetails = await response.json();
                 throw new Error(errorDetails.message || 'Signup failed');
             }
-
-            const responseData = await response.json();
-            if (responseData.token) {
-                setToken(responseData.token);
-                setUser(responseData.user);
-                localStorage.setItem('token', responseData.token);
-                return responseData.user;
-            } else {
-                throw new Error('Token missing in response');
-            }
+            const result = await response.json();
+            // console.log(response)
+            return result
         } catch (err) {
             console.error('Signup error:', err.message);
             alert(err.message);

@@ -23,7 +23,7 @@ const Tasks = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/tasks?userId=${auth.user._id}`);
+            const response = await fetch(`https://tasks-bc5v.onrender.com/api/tasks?userId=${auth.user._id}`);
             const data = await response.json();
             setTasks(data);
         } catch (error) {
@@ -34,7 +34,7 @@ const Tasks = () => {
     const handleAddTask = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/tasks', {
+            const response = await fetch('https://tasks-bc5v.onrender.com/api/tasks', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const Tasks = () => {
 
     const handleMarkComplete = async (taskId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+            const response = await fetch(`https://tasks-bc5v.onrender.com/api/tasks/${taskId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Tasks = () => {
 
     const handleDeleteTask = async (taskId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+            const response = await fetch(`https://tasks-bc5v.onrender.com/api/tasks/${taskId}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
@@ -109,7 +109,7 @@ const Tasks = () => {
                         <Nav className="ms-auto">
                             <Link className="nav-link" to="/home">Home</Link>
                             <Link className="nav-link" to="/tasks">Tasks</Link>
-                            <Link className="nav-link" to="/profile">Profile</Link>
+                            {/* <Link className="nav-link" to="/profile">Profile</Link> */}
                             <Nav.Link className="logout-link" onClick={() => auth.logout()}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

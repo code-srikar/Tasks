@@ -23,7 +23,7 @@ const Home = () => {
     const handleAddTask = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/tasks', {
+            const response = await fetch('https://tasks-bc5v.onrender.com/api/tasks', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const Home = () => {
                         <Nav className="ml-auto">
                             <Link className="nav-link" to="/home">Home</Link>
                             <Link className="nav-link" to="/tasks">Tasks</Link>
-                            <Link className="nav-link" to="/profile">Profile</Link>
+                            {/* <Link className="nav-link" to="/profile">Profile</Link> */}
                             <Nav.Link className="logout-link" onClick={() => handleLogout()}>Logout</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

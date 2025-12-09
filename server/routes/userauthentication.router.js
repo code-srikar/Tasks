@@ -9,7 +9,7 @@ const router = express.Router();
 
 // Use CORS with proper origin
 router.use(cors({
-    origin: ["http://localhost:3000"], // Adjusted to match typical local development setup
+    origin: true, // Adjusted to match typical local development setup
     methods: ["GET", "POST"],
     credentials: true
 }));
@@ -75,3 +75,4 @@ router.get('/user', async (req, res) => {
 });
 
 module.exports = router;
+
